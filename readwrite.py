@@ -3,6 +3,9 @@ import re
 
 
 def read(path):
+    ''' Read a .prison file and convert it to a dictionary. Keys are
+        not unique so each entry is a list
+    '''
     prison = defaultdict(list)
     current_block = prison
     stack = [current_block]
@@ -32,11 +35,12 @@ def read(path):
 
 
 def write(path, prison):
-    '''Write the previous data structure back to prison format'''
+    ''' Take a dictionary given by read() and recursively write back 
+        to .prison format
+    '''
     with open(path, "w") as target:
         for line in _unpack(prison):
             target.write(line)
-
 
 def _unpack(block):
     for name, entry_list in block.items():
