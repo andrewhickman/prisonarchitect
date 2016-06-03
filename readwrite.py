@@ -6,7 +6,7 @@ def read(path):
     prison = defaultdict(list)
     current_block = prison
     stack = [current_block]
-    with open(path) as data:
+    with open(path, "r") as data:
         for line in data:
             is_name = True
             is_new_block = False
