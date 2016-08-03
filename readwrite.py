@@ -9,7 +9,7 @@ def read(path):
     prison = defaultdict(list)
     current_block = prison
     stack = [current_block]
-    with open(path, "r") as data:
+    with open(path, 'r') as data:
         for line in data:
             is_name = True
             is_new_block = False
@@ -38,7 +38,7 @@ def write(path, prison):
     ''' Take a dictionary given by read() and recursively write back 
         to .prison format
     '''
-    with open(path, "w") as target:
+    with open(path, 'w') as target:
         for line in _unpack(prison):
             target.write(line)
 
